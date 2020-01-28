@@ -5,12 +5,17 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
+<<<<<<< HEAD
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js"
+=======
+    "start": "node start.js"
+>>>>>>> 156945ddb47287dc21999c1a6aaa99d6ac72f8b3
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.17.1",
