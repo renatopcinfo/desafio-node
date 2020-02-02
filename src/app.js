@@ -2,7 +2,6 @@ import 'dotenv/config';
 
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import routes from './routes';
 
 import './database';
@@ -18,7 +17,6 @@ class App {
   middlewares() {
     this.server.use(cors());
     this.server.use(express.json());
-    this.server.use(bodyParser.json());
 
     this.server.use((req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');
