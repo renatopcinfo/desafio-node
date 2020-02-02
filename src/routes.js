@@ -9,6 +9,7 @@ import authMiddlewares from './app/middlewares/auth';
 const routes = new Router();
 
 routes.post('/signup', UserController.store);
+
 routes.post('/signin', SessionController.store);
 
 routes.get('/', (req, res) => res.send('DESAFIO NODE CONCRETE SOLUTIONS'));

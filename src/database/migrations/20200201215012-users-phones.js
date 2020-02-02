@@ -1,19 +1,25 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('phones', {
+    return queryInterface.createTable('users-phones', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      number: {
+      UserId: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
-      ddd: {
+      PhoneId: {
         type: Sequelize.INTEGER,
-        allowNull: true,
+        references: { model: 'phones', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -27,6 +33,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('phones');
+    return queryInterface.dropTable('users-phones');
   },
 };

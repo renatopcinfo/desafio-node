@@ -13,7 +13,11 @@ class Phone extends Model {
     );
 
     Phone.associate = models => {
-      Phone.belongsTo(models.User, { foreignKey: 'user_id' });
+      Phone.belongsTo(models.User, {
+        through: 'users-phones',
+        as: 'users',
+        foreignKey: 'PhoneId',
+      });
     };
 
     return this;

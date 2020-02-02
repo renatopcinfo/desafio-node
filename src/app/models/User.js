@@ -16,7 +16,11 @@ class User extends Model {
     );
 
     User.associate = models => {
-      User.hasMany(models.Phone);
+      User.hasMany(models.Phone, {
+        through: 'users-phones',
+        as: 'phones',
+        foreignKey: 'UserId',
+      });
     };
 
     this.addHook('beforeSave', async user => {
